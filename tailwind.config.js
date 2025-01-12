@@ -1,3 +1,5 @@
+import { text } from 'stream/consumers';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ['class'],
@@ -6,7 +8,11 @@ export default {
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+				foreground: 'hsl(var(--foreground))',
+				'main-bg': 'hsl(var(--main-bg))',
+				'sub-bg': 'hsl(var(--sub-bg))',
+				'card-hover-bg': 'hsl(var(--card-hover-bg))',
+				yellow: 'hsl(var(--yellow))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
