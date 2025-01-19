@@ -5,7 +5,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger
 } from 'src/components/UI/navigation-menu'
@@ -76,20 +75,20 @@ function Header() {
               {NAV_ITEMS.map((item) => (
                 <NavigationMenuItem key={item.label}>
                   <Link to={item.path}>
-                    <NavigationMenuLink className="hover:text-yellow font-medium">{item.label}</NavigationMenuLink>
+                    <span className="font-medium hover:text-yellow">{item.label}</span>
                   </Link>
                 </NavigationMenuItem>
               ))}
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:!text-yellow !bg-transparent !p-0 text-base">
+                <NavigationMenuTrigger className="!bg-transparent !p-0 text-base hover:!text-yellow">
                   Quốc gia
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="left-0 !min-w-[120px]">
                   {/* Countries */}
                   {COUNTRIES.map((country) => (
                     <Link key={country.name} to={country.path}>
-                      <NavigationMenuLink className="hover:bg-yellow/50 block p-2">{country.name}</NavigationMenuLink>
+                      <span className="block p-2 hover:bg-yellow/50">{country.name}</span>
                     </Link>
                   ))}
                 </NavigationMenuContent>
@@ -141,7 +140,7 @@ function Header() {
               {/* Countries */}
               {COUNTRIES.map((country) => (
                 <Link key={country.name} to={country.path}>
-                  <NavigationMenuLink className="hover:bg-yellow/50 block p-2">{country.name}</NavigationMenuLink>
+                  <span className="block p-2 hover:bg-yellow/50">{country.name}</span>
                 </Link>
               ))}
             </NavigationMenuContent>
@@ -151,7 +150,7 @@ function Header() {
           {NAV_ITEMS.map((item) => (
             <NavigationMenuItem key={item.label}>
               <Link to={item.path}>
-                <NavigationMenuLink className="hover:text-yellow font-medium">{item.label}</NavigationMenuLink>
+                <span className="font-medium hover:text-yellow">{item.label}</span>
               </Link>
             </NavigationMenuItem>
           ))}
