@@ -14,11 +14,13 @@ export default function App() {
       <Routes>
         <Route path={ROUTES.HOME} element={<MainLayout />}>
           <Route index element={<Home />} />
+          {/* <Route path={ROUTES.WATCH_MOVIE} element={<WatchMovie />} /> */}
           <Route path={ROUTES.MOVIE_DETAIL} element={<MovieDetail />} />
           <Route path={ROUTES.BROWSE} element={<MoviesPage />} />
           <Route path={ROUTES.SERIES} element={<MoviesPage />} />
           <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
           <Route path={ROUTES.COUNTRY} element={<MoviesPage />} />
+          <Route path={ROUTES.CATEGORY} element={<MoviesPage />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>
