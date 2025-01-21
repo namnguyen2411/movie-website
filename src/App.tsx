@@ -19,6 +19,7 @@ export default function App() {
           <Route path={ROUTES.SERIES} element={<MoviesPage />} />
           <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
           <Route path={ROUTES.COUNTRY} element={<MoviesPage />} />
+          <Route path={ROUTES.CATEGORY} element={<MoviesPage />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>
