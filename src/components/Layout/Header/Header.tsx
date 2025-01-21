@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
+import clsx from 'clsx'
 import { Button } from 'src/components/UI/button'
 import {
   NavigationMenu,
@@ -16,9 +17,11 @@ import { SearchBar, MobileSearchBar } from 'src/features/search/components/Searc
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileSearchBarOpen, setIsMobileSearchBarOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
+  // Open/close mobile menu on resize
   useEffect(() => {
     if (isMobileMenuOpen) {
       const mobileMenu = document.getElementById('mobile-menu')!
@@ -35,8 +38,29 @@ function Header() {
     }
   }, [isMobileMenuOpen])
 
+  // Check if user has scrolled down and change background color
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
+
   return (
-    <header className="flex items-center justify-between p-4 text-foreground">
+    <header
+      className={clsx(
+        'sticky top-0 z-20 flex items-center justify-between px-4 py-3 text-foreground',
+        isScrolled ? 'bg-[#0f111a]' : 'bg-transparent'
+      )}
+    >
       {/* Mobile Nav Menu Toggle Button */}
       {!isMobileSearchBarOpen && (
         <button className="z-20 block xl:hidden" onClick={toggleMobileMenu}>
@@ -135,7 +159,9 @@ function Header() {
       <NavigationMenu className="hidden xl:block">
         <NavigationMenuList className="flex space-x-11 2xl:space-x-14">
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="!bg-transparent text-base !text-white">Quốc gia</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="!bg-transparent text-base !text-foreground">
+              Quốc gia
+            </NavigationMenuTrigger>
             <NavigationMenuContent className="left-0 min-w-[120px]">
               {/* Countries */}
               {COUNTRIES.map((country) => (
