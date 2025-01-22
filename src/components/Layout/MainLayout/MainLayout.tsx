@@ -4,7 +4,7 @@ import Footer from '../Footer'
 
 const MainLayout = () => {
   return (
-    <div>
+    <>
       <Header />
 
       {/* Main content */}
@@ -13,7 +13,7 @@ const MainLayout = () => {
       </main>
 
       <Footer />
-    </div>
+    </>
   )
 }
 export default MainLayout
