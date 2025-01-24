@@ -11,10 +11,10 @@ const CategoryCarousel = () => {
       <h3>Bạn thích thể loại gì?</h3>
 
       {/* Mobile Carousel */}
-      <Carousel opts={{ align: 'start', dragFree: true }} className="hidden w-full max-[480px]:block">
+      <Carousel opts={{ align: 'start', skipSnaps: true }} className="hidden w-full max-[480px]:block">
         <CarouselContent>
-          {CATEGORIES.map((c) => (
-            <CarouselItem className="basis-1/3" key={c.slug}>
+          {CATEGORIES.map((c, index) => (
+            <CarouselItem className={clsx('basis-1/3', index > 0 ? '-ml-3' : '')} key={c.slug}>
               <Link to={`/the-loai/${c.slug}`}>
                 <Card
                   className={clsx(
@@ -27,7 +27,7 @@ const CategoryCarousel = () => {
               </Link>
             </CarouselItem>
           ))}
-          <CarouselItem className="basis-1/3">
+          <CarouselItem className="-ml-3 basis-1/3">
             <Link to={ROUTES.BROWSE}>
               <Card className="flex h-[66px] w-[110px] items-center justify-center border-none bg-white/10 shadow-md">
                 <CardContent className="p-4 text-center font-semibold text-foreground">Xem Thêm</CardContent>

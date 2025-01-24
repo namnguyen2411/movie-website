@@ -11,7 +11,7 @@ const fetchmovies = async () => {
   const result = await Promise.all(
     TRENDING_MOVIES.map((slug) => store.dispatch(movieApi.endpoints.getMovieDetail.initiate(slug)).unwrap())
   )
-  return result.map((res) => res.movie)
+  return result.map((res) => res.movie!)
 }
 
 const TrendingMovies = () => {
@@ -71,10 +71,11 @@ const TrendingMovies = () => {
       `
           }}
         />
+
         {/* Movie Content */}
         <div
           className={clsx(
-            'flex h-auto min-h-[240px] flex-col bg-cover bg-center bg-no-repeat',
+            'flex h-auto min-h-[240px] flex-col bg-cover bg-center bg-no-repeat transition-all duration-300',
             'sm:aspect-[16/9] sm:max-h-[320px] sm:gap-2.5',
             'md:max-h-[600px] md:min-h-[450px] md:gap-3.5',
             'xl:min-h-[660px] xl:!bg-none'
@@ -91,7 +92,7 @@ const TrendingMovies = () => {
           <Link
             to={`phim/${currentRecommend.slug}`}
             className={clsx(
-              'mt-auto translate-y-1 bg-gradient-to-b from-main-bg/5 to-main-bg/40 pb-2 pl-7 text-center',
+              'mt-auto translate-y-1 bg-gradient-to-b from-main-bg/5 to-main-bg/40 px-mobile pb-2 text-center md:px-medium xl:px-desktop',
               'sm:w-fit sm:translate-y-0 sm:from-transparent sm:to-transparent sm:pb-0 sm:text-left',
               'xl:pb-5'
             )}
@@ -103,7 +104,7 @@ const TrendingMovies = () => {
           <div
             className={clsx(
               'flex translate-y-1 items-center justify-center space-x-2 bg-gradient-to-b from-main-bg/40 to-main-bg/70 pl-0 text-xs',
-              'sm:translate-y-0 sm:justify-start sm:from-transparent sm:to-transparent sm:pl-7',
+              'sm:translate-y-0 sm:justify-start sm:from-transparent sm:to-transparent sm:px-mobile md:px-medium xl:px-desktop',
               '2xl:text-sm'
             )}
           >
@@ -117,7 +118,7 @@ const TrendingMovies = () => {
           {/* Category Tags */}
           <div
             className={clsx(
-              'hidden translate-y-1 flex-wrap gap-2 bg-gradient-to-b from-transparent to-sub-bg pl-7 text-xs',
+              'hidden translate-y-1 flex-wrap gap-2 bg-gradient-to-b from-transparent to-sub-bg px-mobile text-xs md:px-medium xl:px-desktop',
               'sm:flex sm:translate-y-0',
               'md:bg-transparent md:from-transparent md:to-transparent',
               '2xl:text-sm'
@@ -137,7 +138,7 @@ const TrendingMovies = () => {
           {/* Description */}
           <div
             className={clsx(
-              'z-10 hidden w-[60%] bg-gradient-to-b from-transparent to-sub-bg pl-7',
+              'z-10 hidden w-[60%] bg-gradient-to-b from-transparent to-sub-bg px-mobile md:px-medium xl:px-desktop',
               'md:block md:py-2',
               'xl:w-[50%] xl:!bg-none xl:py-3',
               '2xl:w-[45%] 2xl:py-4'
@@ -150,7 +151,7 @@ const TrendingMovies = () => {
         {/* Actions & Carousel */}
         <div
           className={clsx(
-            'z-10 !ml-0 flex h-[60px] w-full translate-y-1 items-center justify-between bg-gradient-to-b from-main-bg/70 to-main-bg pl-7 pr-5 xl:pr-7',
+            'z-10 !ml-0 flex h-[60px] w-full translate-y-1 items-center justify-between bg-gradient-to-b from-main-bg/70 to-main-bg px-mobile md:px-medium xl:px-desktop',
             'sm:h-[100px] sm:translate-y-0 sm:bg-sub-bg sm:from-transparent sm:to-transparent',
             'xl:bg-transparent'
           )}
