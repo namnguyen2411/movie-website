@@ -30,6 +30,9 @@
     --sub-bg: 226.7 18.8% 18.8%;
     --card-hoverBg: 230 19.6% 22.9%;
     --yellow: 45.4 88.4% 76.3%;
+    --px-desktop: 40px;
+    --px-medium: 28px;
+    --px-mobile: 16px;
   }
 }
 
@@ -39,5 +42,9 @@
   }
   body {
     @apply bg-main-bg font-sans text-white antialiased;
+  }
+
+  h3 {
+    @apply pb-5 text-[20px] font-bold md:text-[24px] xl:text-[28px];
   }
 }

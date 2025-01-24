@@ -56,7 +56,12 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+			},
+			padding: {
+				'desktop': 'var(--px-desktop)',
+				'medium': 'var(--px-medium)',
+				'mobile': 'var(--px-mobile)'
+			}
   	}
   },
   plugins: [require("tailwindcss-animate")],
