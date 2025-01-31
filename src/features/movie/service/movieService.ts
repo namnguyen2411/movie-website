@@ -2,6 +2,7 @@ import type { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { MovieResponseType } from '../types/movie.type'
+import { QueryParamsType } from '../types/queryParams.type'
 
 const axiosBaseQuery =
   (
@@ -45,8 +46,15 @@ export const movieApi = createApi({
         url: `/phim/${slug}`,
         method: 'GET'
       })
+    }),
+    getMoviesByCountry: builder.query<MovieResponseType, { country: string; params?: QueryParamsType }>({
+      query: ({ country, params }) => ({
+        url: `/v1/api/quoc-gia/${country}`,
+        method: 'GET',
+        params
+      })
     })
   })
 })
 
-export const { useGetMovieDetailQuery } = movieApi
+export const { useGetMovieDetailQuery, useGetMoviesByCountryQuery } = movieApi
