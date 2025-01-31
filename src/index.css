@@ -44,7 +44,7 @@
     @apply bg-main-bg font-sans text-white antialiased;
   }
 
-  h3 {
+  h2 {
     @apply pb-5 text-[20px] font-bold md:text-[24px] xl:text-[28px];
   }
 }

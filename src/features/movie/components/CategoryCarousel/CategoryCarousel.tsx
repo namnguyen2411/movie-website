@@ -8,17 +8,17 @@ import { ROUTES } from 'src/constants/routes'
 const CategoryCarousel = () => {
   return (
     <div className="mt-5 px-mobile md:mt-10 md:px-medium xl:mt-14 xl:px-desktop">
-      <h3>Bạn thích thể loại gì?</h3>
+      <h2>Bạn thích thể loại gì?</h2>
 
       {/* Mobile Carousel */}
       <Carousel opts={{ align: 'start', skipSnaps: true }} className="hidden w-full max-[480px]:block">
         <CarouselContent>
           {CATEGORIES.map((c, index) => (
-            <CarouselItem className={clsx('basis-1/3', index > 0 ? '-ml-3' : '')} key={c.slug}>
+            <CarouselItem className={clsx('basis-[33%]', index > 0 ? 'min-[390px]:-ml-2' : '')} key={c.slug}>
               <Link to={`/the-loai/${c.slug}`}>
                 <Card
                   className={clsx(
-                    'flex h-[66px] w-[110px] items-center justify-center border-none shadow-md',
+                    'flex h-[66px] min-w-[110px] items-center justify-center border-none shadow-md',
                     c.bgColor
                   )}
                 >
@@ -27,7 +27,7 @@ const CategoryCarousel = () => {
               </Link>
             </CarouselItem>
           ))}
-          <CarouselItem className="-ml-3 basis-1/3">
+          <CarouselItem className="basis-[35%] min-[390px]:-ml-2 min-[390px]:basis-[34.2%]">
             <Link to={ROUTES.BROWSE}>
               <Card className="flex h-[66px] w-[110px] items-center justify-center border-none bg-white/10 shadow-md">
                 <CardContent className="p-4 text-center font-semibold text-foreground">Xem Thêm</CardContent>
