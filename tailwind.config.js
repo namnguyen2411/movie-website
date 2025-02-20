@@ -11,7 +11,6 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				'main-bg': 'hsl(var(--main-bg))',
 				'sub-bg': 'hsl(var(--sub-bg))',
-				'card-hover-bg': 'hsl(var(--card-hover-bg))',
 				yellow: 'hsl(var(--yellow))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -61,7 +60,16 @@ export default {
 				'desktop': 'var(--px-desktop)',
 				'medium': 'var(--px-medium)',
 				'mobile': 'var(--px-mobile)'
-			}
+			},
+			keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(2px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+			},
+			animation: {
+				'fade-in': 'fade-in 0.5s ease-out',
+			},
   	}
   },
   plugins: [require("tailwindcss-animate")],

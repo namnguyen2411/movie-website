@@ -28,7 +28,6 @@
     /* custom */
     --main-bg: 229 18% 12%;
     --sub-bg: 226.7 18.8% 18.8%;
-    --card-hoverBg: 230 19.6% 22.9%;
     --yellow: 45.4 88.4% 76.3%;
     --px-desktop: 40px;
     --px-medium: 28px;
@@ -45,6 +44,31 @@
   }
 
   h2 {
-    @apply pb-5 text-[20px] font-bold md:text-[24px] xl:text-[28px];
+    @apply pb-3 text-xl font-bold md:text-2xl xl:pb-5 xl:text-3xl;
+  }
+}
+
+@layer utilities {
+  .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10%),
+      radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10%),
+      radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10%);
+    background-size: 3px 3px; /* Kích thước của các chấm */
+    background-position:
+      0 0,
+      5px 5px,
+      10px 10px;
+    pointer-events: none;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .cover-fade {
+    background-image: linear-gradient(to right, #2f3346 20%, #2f3346, transparent);
   }
 }
